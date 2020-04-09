@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-const passport = require('passport')
+const auth = require('../utils/auth')
 const UserController = require('../controllers/UserController')
 const OcrController = require('../controllers/OcrController')
 
@@ -14,10 +14,8 @@ routes.route('/ocr')
 
 // Auth route
 
-routes.post('/login', passport.authenticate('local', {
-    session: false
-}), function (req, res) {
-        res.send(req.user)
+routes.post('/login', auth, function (req, res) {
+    res.send(req.user)
 })
 
 module.exports = routes
