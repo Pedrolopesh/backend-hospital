@@ -1,5 +1,4 @@
-
-exports.up = function(knex) {
+exports.up = function (knex) {
     return knex.schema.createTable('user', function (table) {
         table.increments()
         table.string('name').notNullable()
@@ -10,9 +9,8 @@ exports.up = function(knex) {
         table.string('role').notNullable() // Médico, enfermeiro
         table.string('level').notNullable() // Administrador, coordenador
     })
-  };
-  
-  exports.down = function(knex) {
+};
+
+exports.down = function (knex) {
     return knex.schema.dropTable('ongs')
-  };
-  
+};
