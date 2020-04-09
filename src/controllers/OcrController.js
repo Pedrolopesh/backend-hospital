@@ -20,5 +20,12 @@ module.exports = {
 
         return res.status(200).send('Ocr registrada')
         
+    },
+
+    async index(req, res) {
+
+        const ocrs = await connection('ocr').select('*')
+
+        return res.json(ocrs)
     }
 }

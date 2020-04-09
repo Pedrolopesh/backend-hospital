@@ -9,8 +9,10 @@ routes.route('/user')
     .post(UserController.create)
 
 routes.route('/ocr')
-    .get((req, res) => res.send('tudo ok'))
+    .get(OcrController.index)
     .post(OcrController.create)
+
+// Auth route
 
 routes.post('/login', passport.authenticate('local', {
     session: false
