@@ -10,9 +10,10 @@ module.exports = new Strategy({
 
         connection('user')
             .where({
-                username
+                email: username
             }).first()
                 .then((user) => {
+
                     if (!user) {
                         return done(null, false);
                     }

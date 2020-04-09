@@ -8,20 +8,21 @@ module.exports = {
             name,
             email,
             password,
-            cpf,
             whatsapp,
             role,
             level
         } = req.body
 
+        const active = true
+
         await connection('user').insert({
             name,
             email,
             password,
-            cpf,
             whatsapp,
             role,
-            level
+            level,
+            active
         })
 
         return res.status(200).send('Usuário registrado!')

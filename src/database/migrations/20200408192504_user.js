@@ -4,13 +4,13 @@ exports.up = function (knex) {
         table.string('name').notNullable()
         table.string('email').unique().notNullable();
         table.string('password').unique().notNullable();
-        table.string('cpf').notNullable()
         table.string('whatsapp').notNullable()
         table.string('role').notNullable() // Médico, enfermeiro
         table.string('level').notNullable() // Administrador, coordenador
+        table.boolean('active').notNullable() 
     })
 };
 
 exports.down = function (knex) {
-    return knex.schema.dropTable('ongs')
+    return knex.schema.dropTable('user')
 };
