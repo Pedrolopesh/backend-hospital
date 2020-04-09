@@ -1,6 +1,6 @@
 exports.up = function (knex) {
     return knex.schema.createTable('queue', function (table) {
-        table.increments()
+        table.increments('id').primary()
         table.string('name').notNullable()
 
     })
